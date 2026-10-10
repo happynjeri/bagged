@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagged - Pack with a plan</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+<div class="app" id="app">
+
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="Bagged home">
+            <span class="brandmark">B</span>
+            <span>bagged<small>PACK WITH A PLAN</small></span>
+        </a>
+
+        <div class="top-actions">
+            <button class="quiet" id="fontButton" type="button">
+                Aa Font
+            </button>
+            <button class="quiet" id="themeButton" type="button">
+                ◐ <span id="themeLabel">Dark mode</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-copy">
+            <div class="eyebrow">Your trip, minus the "I forgot"</div>
+
+            <h1>
+                Pack less stress.<br>
+                <em>Bring what matters.</em>
+            </h1>
+
+            <p>
+                A thoughtful packing list built around your destination,
+                activities, weather and trip length.
+            </p>
+        </div>
+
+        <div class="illustration" aria-label="Travel bag illustration">
+            <div class="sun"></div>
+            <div class="hill"></div>
+            <div class="hill hill2"></div>
+            <div class="bag"></div>
+            <div class="sticker">Your next trip starts here</div>
+        </div>
+    </section>
+
+    <main class="content">
+
+        <aside class="panel">
+            <h2>Plan your trip</h2>
+            <p class="sub">
+                Tell Bagged where you are going.
+            </p>
+
+            <form id="tripForm">
+
+                <div class="field">
+                    <label for="country">Destination country</label>
+                    <input
+                        type="text"
+                        id="country"
+                        placeholder="e.g. Kenya, Japan, Italy"
+                        required
+                        maxlength="80"
+                    >
+                </div>
+
+                <div class="two">
+                    <div class="field">
+                        <label for="days">Number of days</label>
+                        <input
+                            type="number"
+                            id="days"
+                            min="1"
+                            max="365"
+                            value="5"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="activity">Trip type</label>
+                        <select id="activity">
+                            <option value="city">City</option>
+                            <option value="beach">Beach</option>
+                            <option value="hiking">Hiking</option>
+                            <option value="mixed">Mixed activities</option>
+                            <option value="business">Business</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="weather">Expected weather</label>
+                    <select id="weather">
+                        <option value="unsure">Not sure yet</option>
+                        <option value="hot">Hot and sunny</option>
+                        <option value="cold">Cold or winter</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="mild">Mild or mixed</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="laundry">Laundry access</label>
+                    <select id="laundry">
+                        <option value="some">Maybe</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <button class="primary" type="submit">
+                    Build my packing list →
+                </button>
+
+            </form>
+        </aside>
+
+        <section class="panel list-panel" aria-live="polite">
+
+            <div class="list-head">
+                <div>
+                    <h2 id="listTitle">Your packing list</h2>
+                    <p id="tripMeta" class="trip-meta">
+                        Enter your trip details to begin.
+                    </p>
+                </div>
+
+                <div class="list-actions">
+                    <button class="small-btn" id="resetBtn" type="button">
+                        Reset checks
+                    </button>
+                    <button class="small-btn" id="printBtn" type="button">
+                        Print / PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="progress-wrap">
+                <div class="progress-top">
+                    <span id="progressLabel">Ready when you are</span>
+                    <span id="progressNumber">0%</span>
+                </div>
+
+                <div
+                    class="track"
+                    role="progressbar"
+                    aria-label="Packing progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="progressTrack"
+                >
+                    <div class="fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="tools">
+                <input
+                    id="search"
+                    type="search"
+                    placeholder="Search packing items..."
+                    aria-label="Search packing items"
+                >
+
+                <select id="filter" aria-label="Filter packing items">
+                    <option value="all">All items</option>
+                    <option value="todo">Still to pack</option>
+                    <option value="done">Packed</option>
+                </select>
+            </div>
+
+            <div id="packingList">
+                <div class="empty">
+                    Your packing checklist will appear here.
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+       <div class="toast" id="toast" role="status"></div>
+
+</div>
+</body>
+</html>
